@@ -1,24 +1,26 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MagicVilla_VillaAPI.Models
+namespace MagicVilla_VillaAPI.Models.Dto
 {
-    public class Villa
+    public class VillaUpdateDTO
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         public int Id { get; set; }
+
+        [Required]
+        [MaxLength(30)]
         public String Name { get; set; }
+       
         public string Details { get; set; }
+        [Required]
         public double Rate { get; set; }
+        [Required]
         public string ImageUrl { get; set; }
         public string Amenity { get; set; }
-
+        [Required]
         public int Occupancy { get; set; }
-
+        [Required]
         public int Sqft { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime UpdateDate { get; set; }
-
+       
     }
 }
