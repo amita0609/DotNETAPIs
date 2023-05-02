@@ -4,6 +4,7 @@ using MagicVilla_VillaAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagicVilla_VillaAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230430020130_AddVillaNumberToDb")]
+    partial class AddVillaNumberToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,7 +73,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 1,
                             Amenity = "",
-                            CreateDate = new DateTime(2023, 4, 30, 8, 27, 27, 615, DateTimeKind.Local).AddTicks(6098),
+                            CreateDate = new DateTime(2023, 4, 30, 7, 31, 30, 281, DateTimeKind.Local).AddTicks(514),
                             Details = "The Quattrocento villa gardens were treated as a fundamental and aesthetic link between a residential building and the outdoors,",
                             ImageUrl = "https://dotnetmasteryimages.blab.core.windows.net/search/bluevillaimages/villa1.jpg",
                             Name = "Royal Villa",
@@ -83,7 +86,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 2,
                             Amenity = "",
-                            CreateDate = new DateTime(2023, 4, 30, 8, 27, 27, 615, DateTimeKind.Local).AddTicks(6121),
+                            CreateDate = new DateTime(2023, 4, 30, 7, 31, 30, 281, DateTimeKind.Local).AddTicks(552),
                             Details = "The Quattrocento villa gardens were treated as a fundamental and aesthetic link between a residential building and the outdoors,",
                             ImageUrl = "https://dotnetmasteryimages.blab.core.windows.net/search/bluevillaimages/villa2.jpg",
                             Name = "Premium Pool Villa",
@@ -96,7 +99,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 3,
                             Amenity = "",
-                            CreateDate = new DateTime(2023, 4, 30, 8, 27, 27, 615, DateTimeKind.Local).AddTicks(6124),
+                            CreateDate = new DateTime(2023, 4, 30, 7, 31, 30, 281, DateTimeKind.Local).AddTicks(556),
                             Details = "The Quattrocento villa gardens were treated as a fundamental and aesthetic link between a residential building and the outdoors,",
                             ImageUrl = "https://dotnetmasteryimages.blab.core.windows.net/search/bluevillaimages/villa3.jpg",
                             Name = "Luxury Pool Villa",
@@ -109,7 +112,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 4,
                             Amenity = "",
-                            CreateDate = new DateTime(2023, 4, 30, 8, 27, 27, 615, DateTimeKind.Local).AddTicks(6126),
+                            CreateDate = new DateTime(2023, 4, 30, 7, 31, 30, 281, DateTimeKind.Local).AddTicks(559),
                             Details = "The Quattrocento villa gardens were treated as a fundamental and aesthetic link between a residential building and the outdoors,",
                             ImageUrl = "https://dotnetmasteryimages.blab.core.windows.net/search/bluevillaimages/villa4.jpg",
                             Name = "Diamond villa",
@@ -122,7 +125,7 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 5,
                             Amenity = "",
-                            CreateDate = new DateTime(2023, 4, 30, 8, 27, 27, 615, DateTimeKind.Local).AddTicks(6129),
+                            CreateDate = new DateTime(2023, 4, 30, 7, 31, 30, 281, DateTimeKind.Local).AddTicks(563),
                             Details = "The Quattrocento villa gardens were treated as a fundamental and aesthetic link between a residential building and the outdoors,",
                             ImageUrl = "https://dotnetmasteryimages.blab.core.windows.net/search/bluevillaimages/villa5.jpg",
                             Name = "Diamond Pool villa",
@@ -148,25 +151,9 @@ namespace MagicVilla_VillaAPI.Migrations
                     b.Property<DateTime>("UpdateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("VillaID")
-                        .HasColumnType("int");
-
                     b.HasKey("VillaNo");
 
-                    b.HasIndex("VillaID");
-
                     b.ToTable("VilaaNumbers");
-                });
-
-            modelBuilder.Entity("MagicVilla_VillaAPI.Models.VillaNumber", b =>
-                {
-                    b.HasOne("MagicVilla_VillaAPI.Models.Villa", "Villa")
-                        .WithMany()
-                        .HasForeignKey("VillaID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Villa");
                 });
 #pragma warning restore 612, 618
         }
