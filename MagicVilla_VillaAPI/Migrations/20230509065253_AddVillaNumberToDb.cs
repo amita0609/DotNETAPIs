@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MagicVilla_VillaAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class SeedVillaTableWithCreateDate : Migration
+    public partial class AddVillaNumberToDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,36 +15,36 @@ namespace MagicVilla_VillaAPI.Migrations
                 table: "Villas",
                 keyColumn: "Id",
                 keyValue: 1,
-                column: "CreateDate",
-                value: new DateTime(2023, 4, 26, 23, 36, 41, 374, DateTimeKind.Local).AddTicks(5019));
+                column: "CreatedDate",
+                value: new DateTime(2023, 5, 9, 12, 22, 53, 700, DateTimeKind.Local).AddTicks(8198));
 
             migrationBuilder.UpdateData(
                 table: "Villas",
                 keyColumn: "Id",
                 keyValue: 2,
-                column: "CreateDate",
-                value: new DateTime(2023, 4, 26, 23, 36, 41, 374, DateTimeKind.Local).AddTicks(5045));
+                column: "CreatedDate",
+                value: new DateTime(2023, 5, 9, 12, 22, 53, 700, DateTimeKind.Local).AddTicks(8212));
 
             migrationBuilder.UpdateData(
                 table: "Villas",
                 keyColumn: "Id",
                 keyValue: 3,
-                column: "CreateDate",
-                value: new DateTime(2023, 4, 26, 23, 36, 41, 374, DateTimeKind.Local).AddTicks(5048));
+                column: "CreatedDate",
+                value: new DateTime(2023, 5, 9, 12, 22, 53, 700, DateTimeKind.Local).AddTicks(8215));
 
             migrationBuilder.UpdateData(
                 table: "Villas",
                 keyColumn: "Id",
                 keyValue: 4,
-                column: "CreateDate",
-                value: new DateTime(2023, 4, 26, 23, 36, 41, 374, DateTimeKind.Local).AddTicks(5051));
+                column: "CreatedDate",
+                value: new DateTime(2023, 5, 9, 12, 22, 53, 700, DateTimeKind.Local).AddTicks(8217));
 
             migrationBuilder.UpdateData(
                 table: "Villas",
                 keyColumn: "Id",
                 keyValue: 5,
-                column: "CreateDate",
-                value: new DateTime(2023, 4, 26, 23, 36, 41, 374, DateTimeKind.Local).AddTicks(5055));
+                column: "CreatedDate",
+                value: new DateTime(2023, 5, 9, 12, 22, 53, 700, DateTimeKind.Local).AddTicks(8219));
         }
 
         /// <inheritdoc />
@@ -54,36 +54,36 @@ namespace MagicVilla_VillaAPI.Migrations
                 table: "Villas",
                 keyColumn: "Id",
                 keyValue: 1,
-                column: "CreateDate",
-                value: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                column: "CreatedDate",
+                value: new DateTime(2023, 5, 9, 10, 14, 15, 234, DateTimeKind.Local).AddTicks(7108));
 
             migrationBuilder.UpdateData(
                 table: "Villas",
                 keyColumn: "Id",
                 keyValue: 2,
-                column: "CreateDate",
-                value: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                column: "CreatedDate",
+                value: new DateTime(2023, 5, 9, 10, 14, 15, 234, DateTimeKind.Local).AddTicks(7122));
 
             migrationBuilder.UpdateData(
                 table: "Villas",
                 keyColumn: "Id",
                 keyValue: 3,
-                column: "CreateDate",
-                value: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                column: "CreatedDate",
+                value: new DateTime(2023, 5, 9, 10, 14, 15, 234, DateTimeKind.Local).AddTicks(7123));
 
             migrationBuilder.UpdateData(
                 table: "Villas",
                 keyColumn: "Id",
                 keyValue: 4,
-                column: "CreateDate",
-                value: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                column: "CreatedDate",
+                value: new DateTime(2023, 5, 9, 10, 14, 15, 234, DateTimeKind.Local).AddTicks(7125));
 
             migrationBuilder.UpdateData(
                 table: "Villas",
                 keyColumn: "Id",
                 keyValue: 5,
-                column: "CreateDate",
-                value: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                column: "CreatedDate",
+                value: new DateTime(2023, 5, 9, 10, 14, 15, 234, DateTimeKind.Local).AddTicks(7127));
         }
     }
 }

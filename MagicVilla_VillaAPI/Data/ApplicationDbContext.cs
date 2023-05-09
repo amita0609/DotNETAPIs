@@ -1,92 +1,87 @@
 ﻿using MagicVilla_VillaAPI.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+//using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace MagicVilla_VillaAPI.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Models.Villa> Villas { get; set; }
-        public DbSet<VillaNumber> VilaaNumbers { get; set; }
-
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
         {
-
-
         }
+
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
+        public DbSet<LocalUser> LocalUsers { get; set; }
+        public DbSet<Villa> Villas { get; set; }
+        public DbSet<VillaNumber> VillaNumbers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Models.Villa>().HasData(
-                new Villa()
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Villa>().HasData(
+                new Villa
                 {
                     Id = 1,
                     Name = "Royal Villa",
-                    Details = "The Quattrocento villa gardens were treated as a fundamental and aesthetic " +
-                             "link between a residential building and the outdoors,",
-                    ImageUrl = "https://dotnetmasteryimages.blab.core.windows.net/search/bluevillaimages/villa1.jpg",
+                    Details = "Fusce 11 tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                    ImageUrl = "https://dotnetmastery.com/bluevillaimages/villa3.jpg",
                     Occupancy = 4,
                     Rate = 200,
                     Sqft = 550,
                     Amenity = "",
-                    CreateDate = DateTime.Now
+                    CreatedDate = DateTime.Now
                 },
-                new Villa()
-                {
-                    Id = 2,
-                    Name = "Premium Pool Villa",
-                    Details = "The Quattrocento villa gardens were treated as a fundamental and aesthetic " +
-                             "link between a residential building and the outdoors,",
-                    ImageUrl = "https://dotnetmasteryimages.blab.core.windows.net/search/bluevillaimages/villa2.jpg",
-                    Occupancy = 4,
-                    Rate = 200,
-                    Sqft = 550,
-                    Amenity = "",
-                    CreateDate = DateTime.Now
-                },
-                new Villa()
-                {
-                    Id = 3,
-                    Name = "Luxury Pool Villa",
-                    Details = "The Quattrocento villa gardens were treated as a fundamental and aesthetic " +
-                             "link between a residential building and the outdoors,",
-                    ImageUrl = "https://dotnetmasteryimages.blab.core.windows.net/search/bluevillaimages/villa3.jpg",
-                    Occupancy = 4,
-                    Rate = 300,
-                    Sqft = 550,
-                    Amenity = "",
-                    CreateDate = DateTime.Now
-                },
-                new Villa()
-                {
-                    Id = 4,
-                    Name = "Diamond villa",
-                    Details = "The Quattrocento villa gardens were treated as a fundamental and aesthetic " +
-                             "link between a residential building and the outdoors,",
-                    ImageUrl = "https://dotnetmasteryimages.blab.core.windows.net/search/bluevillaimages/villa4.jpg",
-                    Occupancy = 4,
-                    Rate = 400,
-                    Sqft = 750,
-                    Amenity = "",
-                    CreateDate=DateTime.Now
-                },
-                new Villa()
-                {
-                    Id = 5,
-                    Name = "Diamond Pool villa",
-                    Details = "The Quattrocento villa gardens were treated as a fundamental and aesthetic " +
-                             "link between a residential building and the outdoors,",
-                    ImageUrl = "https://dotnetmasteryimages.blab.core.windows.net/search/bluevillaimages/villa5.jpg",
-                    Occupancy = 4,
-                    Rate = 600,
-                    Sqft = 990,
-                    Amenity = "",
-                    CreateDate = DateTime.Now
-
-                }
-            );
-
+              new Villa
+              {
+                  Id = 2,
+                  Name = "Premium Pool Villa",
+                  Details = "Fusce 11 tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                  ImageUrl = "https://dotnetmastery.com/bluevillaimages/villa1.jpg",
+                  Occupancy = 4,
+                  Rate = 300,
+                  Sqft = 550,
+                  Amenity = "",
+                  CreatedDate = DateTime.Now
+              },
+              new Villa
+              {
+                  Id = 3,
+                  Name = "Luxury Pool Villa",
+                  Details = "Fusce 11 tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                  ImageUrl = "https://dotnetmastery.com/bluevillaimages/villa4.jpg",
+                  Occupancy = 4,
+                  Rate = 400,
+                  Sqft = 750,
+                  Amenity = "",
+                  CreatedDate = DateTime.Now
+              },
+              new Villa
+              {
+                  Id = 4,
+                  Name = "Diamond Villa",
+                  Details = "Fusce 11 tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                  ImageUrl = "https://dotnetmastery.com/bluevillaimages/villa5.jpg",
+                  Occupancy = 4,
+                  Rate = 550,
+                  Sqft = 900,
+                  Amenity = "",
+                  CreatedDate = DateTime.Now
+              },
+              new Villa
+              {
+                  Id = 5,
+                  Name = "Diamond Pool Villa",
+                  Details = "Fusce 11 tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                  ImageUrl = "https://dotnetmastery.com/bluevillaimages/villa2.jpg",
+                  Occupancy = 4,
+                  Rate = 600,
+                  Sqft = 1100,
+                  Amenity = "",
+                  CreatedDate = DateTime.Now
+              });
         }
-
     }
-    
 }
