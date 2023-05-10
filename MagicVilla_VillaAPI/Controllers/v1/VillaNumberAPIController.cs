@@ -41,6 +41,7 @@ namespace MagicVilla_VillaAPI.Controllers.v1
         }
 
         [HttpGet]
+      //  [Authorize(Roles = "admin")]
         //[MapToApiVersion("1.0")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<APIResponse>> GetVillaNumbers()
@@ -64,7 +65,7 @@ namespace MagicVilla_VillaAPI.Controllers.v1
 
         }
 
-
+     //   [Authorize(Roles = "admin")]
         [HttpGet("{id:int}", Name = "GetVillaNumber")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -96,7 +97,7 @@ namespace MagicVilla_VillaAPI.Controllers.v1
             }
             return _response;
         }
-       // [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

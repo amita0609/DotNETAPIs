@@ -24,8 +24,7 @@ namespace MagicVilla_Web.Controllers
        // [Authorize]
         public async Task<IActionResult> Login()
         {
-            //var accessToken = await HttpContext.GetTokenAsync("access_token");
-            //return RedirectToAction(nameof(Index), "Home");
+            
 
             LoginRequestDTO obj = new();
             return View(obj);
@@ -44,7 +43,7 @@ namespace MagicVilla_Web.Controllers
                 var jwt = handler.ReadJwtToken(model.Token);
 
                 var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-                identity.AddClaim(new Claim(ClaimTypes.Name, jwt.Claims.FirstOrDefault(u => u.Type == "name").Value));
+                identity.AddClaim(new Claim(ClaimTypes.Name, model.User.UserName));
                 identity.AddClaim(new Claim(ClaimTypes.Role, jwt.Claims.FirstOrDefault(u => u.Type == "role").Value));
                 var principal = new ClaimsPrincipal(identity);
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
@@ -79,17 +78,16 @@ namespace MagicVilla_Web.Controllers
             return View();
         }
 
-
+        [HttpGet]
         public async Task<IActionResult> Logout()
         {
-            return View();
-
             await HttpContext.SignOutAsync();
             SignOut("Cookies", "oidc");
             HttpContext.Session.SetString(SD.SessionToken, "");
             return RedirectToAction("Index", "Home");
         }
 
+        [HttpGet]
         public IActionResult AccessDenied()
         {
             return View();
